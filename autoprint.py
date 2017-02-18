@@ -7,7 +7,7 @@ from os import system
     
 def main():
     parser = ArgumentParser(
-        description='print linked PDF document from org-mode-generated table',
+        description='print linked PDF document from dated table',
         formatter_class=ArgumentDefaultsHelpFormatter
     )
     parser.add_argument("-t", "--test", help="test mode, just print commands", default=False, action='store_true')
@@ -20,7 +20,7 @@ def main():
     parser.add_argument("-i", "--id", help="table id", default="orgtable1")
     options = vars(parser.parse_args())
 
-    today = datetime.date.today().strftime("<%Y-%m-%d %a>")
+    today = datetime.date.today().strftime("%Y-%m-%d")
     if options['date'] is not None:
         today = options['date']
     print("searching for %s" % today)
